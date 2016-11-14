@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css">
+        <title>Blank App Designer Cordova Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" href="ionic/css/ionic.css">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="intelxdk.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="marginal/marginal-position.js"></script>
+        <script type="application/javascript" src="ionic/js/ionic.bundle.js"></script>
+        <!-- Only include ng-cordova-mocks.min.js in development -->
+        <script src="lib/ng-cordova-mocks.min.js"></script>
+        <script src="lib/ng-cordova.min.js"></script>
+        <script src="cordova.js"></script>
+        <script src="xhr.js"></script>
+        <script type="application/javascript" src="js/index_init_services.js"></script>
+        <script type="application/javascript" src="js/app.js"></script>
+        <script type="application/javascript" src="js/controllers.js"></script>
+        <script type="application/javascript" src="js/services.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+    </head>
+
+    <body ng-app="myApp" ng-controller="AppController as app">
+
+        <!-- ng-app is the root of the AngularJs Application, ng-controller controls the data of a AngularJs application -->
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <ion-side-menus enable-menu-with-back-views="true">
+            <!-- creates a side menus container and enable it whenever the backbutton is shown-->
+            <!--<ion-side-menu side="left">                         <!-- creates a side menu on the left side
+                <ion-header-bar>                                <!-- creates a header bar above a content
+                    <h1 class="title">BLE-Connection</h1>           <!-- Navigation as header
+                </ion-header-bar>
+               
+               
+                <ion-content has-header="true" class="widget" >  <!-- content for side menu, has header so content wont overlap with header and widget class -->
+            <!--<ion-list class="widget" data-uib="ionic/list">     <!-- creates a list, data-uib is used so App Designer can show it right
+                        <ion-item class="item widget" href="#/" ng-click="toggleLeft()" data-uib="ionic/list_item">Home</ion-item>
+                    </ion-list>
+                    <ion-list class="widget" data-uib="ionic/list">
+                        <ion-item class="item widget" ng-click="display.alert('Developing innovative solutions for everyone!', 'Reinsys.com')" data-uib="ionic/list_item">About</ion-item>
+                    </ion-list>
+                    <ion-list class="widget" data-uib="ionic/list">
+                        <ion-item class="item widget" ng-click="display.alert('This is a wonderful Cockteil','Cocktailbooom')" data-uib="ionic/list_item">Cocktail</ion-item>
+                    </ion-list>
+                   <div ng-controller="BleCtrl" >
+                    <div class="container align-center">
+                        <div class="description">
+                        <img src="images/BLE.png" width="90" height="150">
+                        <!--<i class="icon ion-bluetooth"></i>
+                            <p>Scan for Mixmaster Bluetooth Low Energy Connection</p>
+                        </div>
+                        <label class="item item-input">
+					<span class="input-label">Peripheral's Service UUID</span>
+    				<input ng-model="serviceUuid" type="text" spellcheck="false" autocorrect="off" autocomplete="off" placeholder="Blank">
+                        </label>
+			</div>
+			<div class="{{scanStatus.phase}}">
+				{{scanStatus.text}}
+			</div>
+			<div id="peripheral-list" class="hidden">
+				<div class="card" ng-repeat="device in blePeripherals" ng-click="connect(device.id, device.name)">
+					<div class="item item-divider">
+						{{device.name}}
+					</div>
+					<div class="item item-text-wrap align-left">
+						RSSI: {{device.rssi}}<br>DEVICE ID: {{device.id}}
+					</div>
+				</div>
+			</div>
+                        <button class="button button-block button balanced" ng-disabled="{{isScanBtnDisabled}}" ng-click="scan(serviceUuid)">Scan</button>
+                        
+                    <!--</div>
+                </div>
+                </ion-content>
+               
+                
+                <ion-footer-bar class="bar-default bar-footer">         <!-- create footer bar 
+                    <h1 class="title">Powered by Gimbel_Weißenbacher</h1>
+                    <button class="button button-icon icon ion-information-circled button-clear button-dark" ng-click="display.alert('This App is just for you. Enjoy your Drinks!', 'TBQuadrat')"></button>
+
+                </ion-footer-bar>
+                
+            </ion-side-menu>-->
+            <ion-side-menu-content>
+                <!--container for the main visible content -->
+                <ion-nav-bar>
+                    <!-- create topbar which can update by changing states -->
+                   <!--  <ion-nav-back-button class="button-clear" ng-show="!display.menuIsOpen()">
+                        <!-- create a back buttteon-->
+                      <!--  <i class="ion-arrow-left-c"></i> Back
+                   <!-- </ion-nav-back-button> --> 
+                    <ion-nav-buttons side="left">
+                        <!-- Toggle left side menu -->
+                      
+                    </ion-nav-buttons>
+                    <ion-nav-buttons side="right">
+                        <!-- Toggle left side menu -->
+                        <button style="position: absolute; right: 0px; background-color: #ffffff" class="button button-icon icon widget ion ion-camera" data-uib="ionic/button" ng-click="display.goToPath('/search')" ng-show="display.currentStateName() == 'index'"></button>
+                        <button style="position: absolute; right: 0px; background-color: #ffffff" class="button widget button-icon icon ion ion-home" data-uib="ionic/button" ng-click="display.goToPath('/')" ng-show="display.currentStateName() != 'index'" id="Home"></button>
+                        <button style="position: absolute; right: 50px; background-color: #ffffff" class="button button-icon icon widget ion ion-bluetooth" data-uib="ionic/button" ng-click="display.goToPath('/scan')" ng-show="display.currentStateName() == 'index'"></button>
+
+                    </ion-nav-buttons>
+                </ion-nav-bar>
+                <ion-nav-view name="index"></ion-nav-view>
+            </ion-side-menu-content>
+        </ion-side-menus>
+        <div id="template" class="hidden"></div>
+    </body>
+
+</html>
